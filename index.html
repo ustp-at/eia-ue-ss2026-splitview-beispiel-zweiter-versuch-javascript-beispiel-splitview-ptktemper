@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas vs jCanvas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <div class="splitter-container">
+        <div class="resizer"></div>
+        <div class="panel bottom">
+            <h1>Was ist Canvas in JavaScript?</h1>
+            <p>Canvas in JavaScript ist eine leistungsstarke und flexible Möglichkeit, um direkt im Webbrowser Grafiken zu erstellen und zu manipulieren. Mit der Canvas-API können Entwickler auf einem pixelbasierten Zeichenfeld ("Canvas") mit Hilfe von JavaScript dynamische, interaktive Grafiken und Animationen rendern.</p>
+            <h2>Grundlagen von Canvas:</h2>
+            <p>Canvas wird im HTML mit dem <code>&lt;canvas&gt;</code> Tag definiert. Dieses Tag erstellt eine Zeichenfläche, die dann mit JavaScript bearbeitet werden kann. Um mit Canvas zu beginnen, muss man zuerst das Rendering-Kontext-Objekt abrufen, üblicherweise den 2D-Kontext.</p>
+            <pre>
+&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+&lt;/script&gt;
+            </pre>
+            <h2>Zeichnen auf dem Canvas:</h2>
+            <p>Mit dem 2D-Kontext kann man Formen, Texte und Bilder zeichnen. Ein einfaches Beispiel zum Zeichnen eines Rechtecks sieht wie folgt aus:</p>
+            <pre>
+ctx.fillStyle = 'red';
+ctx.fillRect(10, 10, 50, 50);
+            </pre>
+            <h2>Animationen mit Canvas:</h2>
+            <p>Animationen können durch wiederholtes Aktualisieren des Canvas-Inhalts mittels einer Schleife erstellt werden. Hierbei wird oft <code>requestAnimationFrame</code> genutzt, um eine optimierte Schleife zu erstellen, die den neuen Frame vor dem nächsten Bildschirm-Refresh zeichnet.</p>
+            <pre>
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(x, 10, 50, 50);
+    x += 1;
+    requestAnimationFrame(draw);
+}
+draw();
+            </pre>
+            <h2>Interaktion mit Canvas:</h2>
+            <p>Canvas kann auch interaktive Elemente handhaben, indem Ereignisse wie Klicks oder Mausbewegungen überwacht und entsprechende Zeichenaktionen ausgelöst werden.</p>
+            <h2>Erweiterte Techniken:</h2>
+            <p>Zu den erweiterten Möglichkeiten von Canvas gehören das Zeichnen von komplexen Pfaden, die Nutzung von Schatten, die Arbeit mit Bildern und die Implementierung von Filtereffekten. Mit WebGL bietet das <code>&lt;canvas&gt;</code> Element auch eine API für 3D-Grafiken.</p>
+            <p>Mit Canvas haben Entwickler die Werkzeuge an der Hand, um detaillierte, interaktive Grafiken und Spiele direkt im Browser zu realisieren, ohne dass Plugins erforderlich sind.</p>
+        
+        </div>
+ 
+       
+        <div class="panel top">
+            <h1>JavaScript Syntax-Kürzel</h1>
+            <p>JavaScript bietet eine Vielzahl von Syntax-Kürzeln und modernen Operatoren, die das Schreiben von Code schneller, einfacher und lesbarer machen können. Diese Kürzel sind besonders nützlich in alltäglichen Programmieraufgaben.</p>
+            <h2>Bedingungsoperatoren:</h2>
+            <p>Der ternäre Operator ist eine kurze Schreibweise für <code>if-else</code>-Anweisungen. Er wird oft verwendet, um auf Basis einer Bedingung einen von zwei Werten zuzuweisen.</p>
+            <pre>
+var access = age &gt; 18 ? 'Granted' : 'Denied';
+            </pre>
+            <h2>Template Literals:</h2>
+            <p>Template Literals erleichtern das Erstellen von zusammengesetzten Strings. Sie ermöglichen es, Variablen und Ausdrücke direkt in einen String einzufügen.</p>
+            <pre>
+var name = 'World';
+console.log(`Hello ${name}!`);
+            </pre>
+            <h2>Arrow Functions:</h2>
+            <p>Pfeilfunktionen bieten eine kürzere Syntax für die Schreibung von Funktionen. Dies ist besonders nützlich bei Callbacks und Funktionen, die in Methoden wie <code>map()</code>, <code>filter()</code> und <code>reduce()</code> verwendet werden.</p>
+            <pre>
+const squares = [1, 2, 3, 4].map(x => x * x);
+            </pre>
+            <h2>Spread und Rest Operatoren:</h2>
+            <p>Spread-Operator ermöglicht es, Elemente eines Arrays oder Objekt-Eigenschaften in Literalen oder Funktionen auszubreiten. Der Rest-Operator hingegen erlaubt es, eine unbestimmte Anzahl von Argumenten als Array zu empfangen.</p>
+            <pre>
+function sum(...args) {
+    return args.reduce((acc, current) => acc + current, 0);
+}
+var numbers = [1, 2, 3];
+var sum = sum(...numbers);
+            </pre>
+        </div>
+   
+   
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
